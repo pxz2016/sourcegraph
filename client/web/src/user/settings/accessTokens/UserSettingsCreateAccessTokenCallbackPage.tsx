@@ -175,7 +175,7 @@ export const UserSettingsCreateAccessTokenCallbackPage: React.FC<Props> = ({
             return
         }
 
-        // SECURITY: If the request is coming from JetBrains, verify if the port is valid
+        // SECURITY: If the request is going to redirect to localhost (for JetBrains/Neovim), verify that the port number is at least a valid number
         if (isRedirectable(requestFrom) && (!port || !Number.isInteger(Number(port)))) {
             navigate('../..', { relative: 'path' })
             return
